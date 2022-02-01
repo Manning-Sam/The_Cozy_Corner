@@ -1,17 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="../static/css/main.css">
-<title>The Cozy Corner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>The Cozy Corner</title>
 </head>
+
 <body>
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ded1bd;">
+        <a style="margin-left: 2vw" class="navbar-brand" href="#">
+            <img src="../static/images/The cozy corner (4).png" width="80" height="80" alt="The Cozy Corner">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div style="margin-left: 3vw" class="container form-horizontal my-2 my-lg-0 col-3">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Library" aria-label="Search">
+            <div style="padding-left: 10px;">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </div>
+        </div>
+        <div style="margin-left: 6vw;" class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="margin-left: 3vw;">
+                    <a class="nav-link" href= "{{ url_for('site.suggestions') }}">Suggestions</a>
+                </li>
+                <li class="nav-item dropdown" style="margin-left: 3vw;">
+                    <a class="nav-link dropdown-toggle" href= "{{ url_for('site.library') }}" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Library
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action/Adventure</a>
+                        <a class="dropdown-item" href="#">Romance</a>
+                        <a class="dropdown-item" href="#">SciFi/Fantasy</a>
+                        <a class="dropdown-item" href="#">Historical Fiction</a>
+                        <a class="dropdown-item" href="#">Biographical</a>
+                    </div>
+                </li>
+                <li class="nav-item" style="margin-left: 3vw;">
+                    <a class="nav-link" href= "{{ url_for('site.cart') }}">Cart</a>
+                </li>
+                <li class="nav-item" style="margin-left: 3vw;">
+                    <a class="nav-link" href= "{{ url_for('site.library') }}">Log Out</a>
+                </li>
+                <li class="nav-item" style="margin-left: 3vw;">
+                    <a class="nav-link" href= "{{ url_for('site.profile') }}">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    {% block content %}
 
+    {% endblock content %}
+    </div>
 </body>
+
 </html>
