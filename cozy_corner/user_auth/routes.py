@@ -3,7 +3,7 @@ from .forms import LoginForm, UserInfoForm
 from cozy_corner.models import User
 from werkzeug.security import check_password_hash
 from flask_login import login_user, logout_user
-from cozy_corner import db
+from cozy_corner import db, site
 
 auth = Blueprint('auth', __name__, template_folder = 'user_auth_templates')
 
@@ -12,25 +12,25 @@ def home():
     return render_template('index.html', title='Home')
 
 @auth.route('/signin', methods=["GET","POST"])
-def logMeIn():
-    form = LoginForm()
-    if request.method == "POST" and form.validate():
-        username = form.username.data
-        password = form.password.data
-        remember_me = form.remember_me.data
+def signIn():
+    login_form = LoginForm()
+    if request.method == "POST" and login_form.validate():
+        username = login_form.username.data
+        password = login_form.password.data
+        remember_me = login_form.remember_me.data
 
         # check if user exists .first() == the first element of that list query
         user = User.query.filter_by(username=username).first()
 
         if user is None or not check_password_hash(user.password, password):
             print("wrong password")
-            return redirect(url_for('signin.html'))
+            return render_template('signin.html', form = login_form)
 
         # log me in
         login_user(user, remember=remember_me)
-        return redirect(url_for('home'))
+        return redirect(url_for("site.profile"))
 
-    return render_template('login.html', form = form)
+    return render_template('signin.html', form = login_form)
         
 
 @auth.route('/signup', methods =["GET", "POST"])
@@ -60,4 +60,4 @@ def signUp():
 @auth.route('/logout')
 def logMeOut():
     logout_user()
-    return redirect(url_for('auth.logMeIn'))
+    return redirect(url_for('auth.signIN'))

@@ -3,15 +3,46 @@
 
 {% block content %}
 
-      <div class="reviews-page">
-        <div class="reviews-heading"></div>
-        <div class="reviews">
-          <div class="my-reviews">
-            <h1>My Book Reviews</h1>
-          </div>
-          <div class="review-header"></div>
-        </div>
+<div class="reviews-page">
+  <div class="reviews-heading"></div>
+  <div class="reviews">
+    <div class="my-reviews">
+      <h1>My Book Reviews</h1>
+    </div>
+    <div class="review-header">
+      <div class="container">
+        <table class="table table-hover table-bordered table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Book Cover</th>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Review</th>
+              <th scope="col">Star Rating</th>
+            </tr>
+            <!-- </thead>
+                  {% for char in characters %}
+                      <tbody>
+                        <tr>
+                          <th scope="row">{{ char.level }}</th>
+                          <td>{{ char.name.title() }}</td>
+                          <td>{{ char.race.title() }}</td>
+                          <td>{{ char.charClass.title() }}</td>
+                          <td>{{ char.hp }}</td>
+                          <td>{{ char.ac }}</td>
+                          <td>{{ char.strength }}</td>
+                          <td>{{ char.dexterity }}</td>
+                          <td>{{ char.constitution }}</td>
+                          <td>{{ char.intellegence }}</td>
+                          <td>{{ char.wisdom }}</td>
+                          <td>{{ char.charisma }}</td>
+                        </tr>
+                      </tbody>    
+                  {% endfor %} -->
       </div>
     </div>
   </div>
+</div>
+</div>
 {% endblock content %}

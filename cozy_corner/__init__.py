@@ -20,7 +20,7 @@ app.config.from_object(Config)
 migrate = Migrate(app,db)
 
 login_manager.init_app(app)
-login_manager.login_view = 'user_auth.signin'
+login_manager.login_view = 'auth.signIn'
 
 @login_manager.user_loader
 def load_user(user_id):
